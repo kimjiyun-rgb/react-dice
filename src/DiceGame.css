@@ -1,0 +1,86 @@
+/* src/components/DiceGame.css */
+
+@keyframes rotateDice {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.dice-game {
+    text-align: center;
+    margin: 20px;
+}
+
+.score-container {
+    margin-bottom: 20px;
+}
+
+.dice-container {
+    cursor: pointer;
+    margin-top: 20px;
+    height: 100px;
+    width: 100px;
+    position: static;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotateDice 1s infinite;
+    /* 초기에는 항상 회전하는 상태로 설정 */
+    animation-play-state: running;
+    /* 초기에는 애니메이션이 실행되도록 설정 */
+    transition: transform 1s ease-out;
+}
+
+.dice-container.rolling {
+    animation-play-state: paused;
+    /* 주사위를 굴릴 때는 애니메이션을 멈춤 */
+}
+
+.dice {
+    background-size: 100% 100%;
+    width: 100px;
+    /* 변경된 부분 */
+    height: 100px;
+    background-image: url('../public/images/dice-sprite.png');
+    /* 변경된 부분 */
+    transition: transform 1s ease-out;
+}
+
+.dice-1 {
+    background-position: 0% 0%;
+}
+
+.dice-2 {
+    background-position: -100% 0%;
+}
+
+.dice-3 {
+    background-position: -200% 0%;
+}
+
+.dice-4 {
+    background-position: -300% 0%;
+}
+
+.dice-5 {
+    background-position: -400% 0%;
+}
+
+.dice-6 {
+    background-position: -500% 0%;
+}
+
+.rolling .dice {
+    transform: translateX(-500%);
+}
+
+button {
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
